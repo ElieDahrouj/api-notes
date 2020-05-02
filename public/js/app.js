@@ -82759,7 +82759,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       var commit = _ref4.commit;
       axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('/api/notes/' + id).then(function (response) {
         commit('deleteSuccessfully');
-        commit('displayOneNote', null);
+        commit('emptyAllField', null);
       });
     },
     addNote: function addNote(_ref5, data) {
