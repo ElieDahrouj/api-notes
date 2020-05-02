@@ -78,6 +78,7 @@ export default new Vuex.Store({
             axios.delete('/api/notes/'+id)
                 .then(response => {
                     commit('deleteSuccessfully')
+                    commit('displayOneNote', null)
                 })
         },
         addNote({commit,state,dispatch},data) {
