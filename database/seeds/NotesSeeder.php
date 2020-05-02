@@ -13,7 +13,7 @@ class NotesSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('fr_FR');
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $post = new Notes();
             $post->content = $faker->realText(100);
             $post->save();

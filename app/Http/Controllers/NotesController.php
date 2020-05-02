@@ -52,11 +52,11 @@ class NotesController extends Controller
     {
         $data = (object)[
             'error' => null,
-            'notes' => []
+            'note' => []
         ];
         try {
             $newNote = Notes::create($request->all());
-            $data->notes = $newNote;
+            $data->note = $newNote;
             return response()->json($data);
         }
         catch (\Exception $error) {
