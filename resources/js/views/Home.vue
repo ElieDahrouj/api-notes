@@ -4,7 +4,7 @@
             <notes></notes>
             <div class="field">
                 <p>Date: {{getterSingleNoteDate}} | Words: {{getterSingleNoteLength}}</p>
-                <textarea v-model="newContent=getterSingleNote.content" @keyup="debounceInput(newContent)" rows="20" cols="10">{{getterSingleNote.content}}</textarea>
+                <textarea v-model="newContent=getterSingleNote.content" @keyup="debounceInput(newContent)" rows="20" cols="10" placeholder="Votre note">{{getterSingleNote.content}}</textarea>
             </div>
             <footer @click="newNote">
                 <p><font-awesome-icon :icon="['fas', 'plus']" /></p>
