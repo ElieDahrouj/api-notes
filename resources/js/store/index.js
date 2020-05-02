@@ -63,26 +63,26 @@ export default new Vuex.Store({
             commit('emptyAllField',null)
         },
         allNotes({commit}){
-            axios.get('http://127.0.0.1:8000/api/notes')
+            axios.get('/api/notes')
                 .then(response =>{
                     commit('displayNotes',response.data.notes)
                 })
         },
         singleNote({commit},id){
-                axios.get('http://127.0.0.1:8000/api/notes/' + id)
+                axios.get('/api/notes/' + id)
                     .then(response => {
                         commit('displayOneNote', response.data.notes)
                     })
         },
         deleteNote({commit},id){
-            axios.delete('http://127.0.0.1:8000/api/notes/'+id)
+            axios.delete('/api/notes/'+id)
                 .then(response => {
                     commit('deleteSuccessfully')
                 })
         },
         addNote({commit,state,dispatch},data) {
             if (!state.oneNote.id) {
-                axios.post('http://127.0.0.1:8000/api/notes', {content: data})
+                axios.post('/api/notes', {content: data})
                     .then(response => {
                         commit('createNote')
                         commit('displayOneNote',response.data.note)
@@ -90,7 +90,7 @@ export default new Vuex.Store({
                     })
             }
             else{
-                axios.put('http://127.0.0.1:8000/api/notes/'+state.oneNote.id, {content: data})
+                axios.put('/api/notes/'+state.oneNote.id, {content: data})
                     .then(response => {
                         commit('displayOneNoteLength', response.data.notes.content)
                         commit('displayUpdateDate',response.data.notes)

@@ -82745,19 +82745,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     allNotes: function allNotes(_ref2) {
       var commit = _ref2.commit;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/notes').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/notes').then(function (response) {
         commit('displayNotes', response.data.notes);
       });
     },
     singleNote: function singleNote(_ref3, id) {
       var commit = _ref3.commit;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/notes/' + id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/notes/' + id).then(function (response) {
         commit('displayOneNote', response.data.notes);
       });
     },
     deleteNote: function deleteNote(_ref4, id) {
       var commit = _ref4.commit;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://127.0.0.1:8000/api/notes/' + id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('/api/notes/' + id).then(function (response) {
         commit('deleteSuccessfully');
       });
     },
@@ -82767,7 +82767,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
           dispatch = _ref5.dispatch;
 
       if (!state.oneNote.id) {
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://127.0.0.1:8000/api/notes', {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/notes', {
           content: data
         }).then(function (response) {
           commit('createNote');
@@ -82775,7 +82775,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
           dispatch('allNotes');
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.put('http://127.0.0.1:8000/api/notes/' + state.oneNote.id, {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.put('/api/notes/' + state.oneNote.id, {
           content: data
         }).then(function (response) {
           commit('displayOneNoteLength', response.data.notes.content);
